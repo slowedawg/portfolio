@@ -284,18 +284,21 @@ document.getElementById('downloadPdfBtn').addEventListener('click', function() {
 
   // Add print-specific CSS for better PDF conversion
   const printStyles = `
-    @media print {
-      body { margin: 0; padding: 0; }
-      .portfolio { box-shadow: none; max-width: none; }
-      .section { page-break-inside: avoid; }
-      .cover-page { page-break-after: always; }
-      .section-header { page-break-after: avoid; }
-    }
-    @page {
-      margin: 1cm;
-      size: A4;
-    }
-  `;
+  @media print {
+    /* hide the form, sidebar, buttons, etc */
+    body * { visibility: hidden; }
+    .portfolio, .portfolio * { visibility: visible; }
+    .portfolio { position: absolute; top: 0; left: 0; width: 100%; }
+
+    /* page breaks */
+    .cover-page { page-break-after: always; }
+    .section { page-break-inside: avoid; page-break-after: always; }
+  }
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+`;
 
   const html = `<!DOCTYPE html>
 <html lang="en">
