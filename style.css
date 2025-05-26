@@ -834,31 +834,18 @@ input[type="file"]:hover {
 /* Print Styles */
 /* ————————————— */
 @media print {
-  /* 1) Hide all UI & sidebars */
-  #generator,
-  #form-panel,
-  #preview-panel,
-  button,
-  input,
-  select,
-  textarea,
-  aside {
+  /* 1) Hide UI */
+  #generator, #form-panel, #preview-panel,
+  button, input, select, textarea, aside {
     display: none !important;
   }
 
-  /* 2) Show only the portfolio itself */
-  body * {
-    visibility: hidden !important;
-  }
-  .portfolio,
-  .portfolio * {
-    visibility: visible !important;
-  }
+  /* 2) Show only the portfolio */
+  body * { visibility: hidden !important; }
+  .portfolio, .portfolio * { visibility: visible !important; }
   .portfolio {
     position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100% !important;
+    top: 0; left: 0; width: 100% !important;
   }
 
   /* 3) Page-break rules */
@@ -875,15 +862,14 @@ input[type="file"]:hover {
     page-break-after: always !important;
   }
 
-  /* 4) Reset margins/background for print */
-  body,
-  html {
+  /* 4) Reset margins/background */
+  body, html {
     margin: 0 !important;
     padding: 0 !important;
-    background: white !important;
+    background: #fff !important;
   }
 
-  /* 5) Preserve true-color backgrounds */
+  /* 5) True-color backgrounds */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
@@ -893,3 +879,4 @@ input[type="file"]:hover {
 @page {
   size: A4;
   margin: 1cm;
+}
