@@ -830,3 +830,52 @@ input[type="file"]:hover {
     border-color: var(--primary-color) !important;
     background: rgba(255, 107, 157, 0.05) !important;
 }
+/* ————————————— */
+/* Print Styles */
+/* ————————————— */
+@media print {
+  /* Hide all UI controls and panels */
+  aside,
+  #downloadBtn,
+  button,
+  [contenteditable] { /* removes the blue outlines in some browsers */
+    outline: none !important;
+  }
+  /* Remove any leftover controls */
+  input, select, textarea {
+    display: none !important;
+  }
+
+  /* Expand the preview to full width */
+  body, html, #preview {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  /* Strip shadows, borders, rounding */
+  .portfolio {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Page breaks after each section */
+  .section, .cover-page {
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
+
+  /* Force headings and text to black for legibility */
+  h1, h2, h3, h4, h5, p, li {
+    color: #000 !important;
+  }
+
+  /* Ensure gradients/backgrounds print (enable in browser settings) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
