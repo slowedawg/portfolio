@@ -834,48 +834,53 @@ input[type="file"]:hover {
 /* Print Styles */
 /* ————————————— */
 @media print {
-  /* Hide all UI controls and panels */
-  aside,
-  #downloadBtn,
+  /* 1) Hide all UI & sidebars */
+  #generator,
+  #form-panel,
+  #preview-panel,
   button,
-  [contenteditable] { /* removes the blue outlines in some browsers */
-    outline: none !important;
-  }
-  /* Remove any leftover controls */
-  input, select, textarea {
+  input,
+  select,
+  textarea,
+  aside {
     display: none !important;
   }
 
-  /* Expand the preview to full width */
-  body, html, #preview {
+  /* 2) Show only the portfolio itself */
+  body * {
+    visibility: hidden !important;
+  }
+  .portfolio,
+  .portfolio * {
+    visibility: visible !important;
+  }
+  .portfolio {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+  }
+
+  /* 3) Page-break rules */
+  .cover-page {
+    page-break-after: always !important;
+  }
+  .section-header,
+  .section {
+    page-break-inside: avoid !important;
+  }
+
+  /* 4) Reset margins/background for print */
+  body,
+  html {
     margin: 0 !important;
     padding: 0 !important;
-    width: 100% !important;
-    overflow: visible !important;
-    background: #fff !important;
+    background: white !important;
   }
+}
 
-  /* Strip shadows, borders, rounding */
-  .portfolio {
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* Page breaks after each section */
-  .section, .cover-page {
-    page-break-inside: avoid;
-    page-break-after: always;
-  }
-
-  /* Force headings and text to black for legibility */
-  h1, h2, h3, h4, h5, p, li {
-    color: #000 !important;
-  }
-
-  /* Ensure gradients/backgrounds print (enable in browser settings) */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
+/* Define page size & margins */
+@page {
+  size: A4;
+  margin: 1cm;
 }
