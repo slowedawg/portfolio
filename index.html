@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Career Portfolio Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-beauty">
+    <div id="generator">
+        <div id="form-panel">
+            <h2>Portfolio Setup</h2>
+            <label>Theme:
+                <select id="themeSelector">
+                    <option value="theme-beauty">Beauty</option>
+                    <option value="theme-trades">Trades</option>
+                    <option value="theme-childcare">Childcare</option>
+                    <option value="theme-sport">Sport</option>
+                    <option value="theme-custom">Custom</option>
+                </select>
+            </label>
+            
+            <div id="colorCustomization" style="display: none;">
+                <h4>Custom Colors</h4>
+                <label>Primary Color:<input type="color" id="primaryColor" value="#ff6b9d"></label>
+                <label>Secondary Color:<input type="color" id="secondaryColor" value="#c44569"></label>
+                <label>Accent Color:<input type="color" id="accentColor" value="#f8b500"></label>
+                <label>Background Color:<input type="color" id="bgColor" value="#f8f9fa"></label>
+                <label>Text Color:<input type="color" id="textColor" value="#333333"></label>
+                <label>Card Background:<input type="color" id="cardBg" value="#ffffff"></label>
+                <label>Profile Gradient Start:<input type="color" id="profileGradientStart" value="#ff6b9d"></label>
+                <label>Profile Gradient End:<input type="color" id="profileGradientEnd" value="#f8b500"></label>
+                <label>Highlight Cards Start:<input type="color" id="highlightGradientStart" value="#ff6b9d"></label>
+                <label>Highlight Cards End:<input type="color" id="highlightGradientEnd" value="#f8b500"></label>
+                <label>Industry Focus Start:<input type="color" id="industryGradientStart" value="#8e44ad"></label>
+                <label>Industry Focus End:<input type="color" id="industryGradientEnd" value="#3498db"></label>
+                <label>Timeline Start:<input type="color" id="timelineGradientStart" value="#f39c12"></label>
+                <label>Timeline End:<input type="color" id="timelineGradientEnd" value="#e67e22"></label>
+                <label>Section Headers:<input type="color" id="sectionHeaderBg" value="#ff6b9d"></label>
+            </div>
+            
+            <h3>Cover Information</h3>
+            <label>Name:<input type="text" id="inputName" value="Maya Rodriguez"></label>
+            <label>Subtitle:<input type="text" id="inputSubtitle" value="Creating Beauty & Building Confidence"></label>
+            <label>Year/Class:<input type="text" id="inputStudentYear" value="Year 11 Work Related Skills"></label>
+            <label>School:<input type="text" id="inputSchool" value="Riverside Secondary College"></label>
+            <label>Year:<input type="text" id="inputPortfolioYear" value="2025"></label>
+            
+            <h4>Cover Emojis (separate with commas)</h4>
+            <label>Emojis:<input type="text" id="inputEmojis" value="✂️,👩‍🦱,🎨,✨,💄"></label>
+
+            <h3>Section A: Who I Am Today</h3>
+            <label>Personal Profile:<textarea id="inputProfile">I'm a creative person who loves making people feel confident and beautiful. I've always been fascinated by hair, makeup, and styling - I'm the friend everyone comes to for advice about their look for special events. I love experimenting with different techniques, watching YouTube tutorials, and following the latest trends. What really drives me is seeing how a great haircut or style can completely transform someone's confidence.</textarea></label>
+            
+            <label>Core Strengths (one per line):<textarea id="inputStrengths">Creative flair & artistic vision
+Great with people & conversation
+Attention to detail
+Patient and encouraging</textarea></label>
+            
+            <label>Areas to Develop (one per line):<textarea id="inputAreasToGrow">Business and financial management skills
+Advanced technical hairdressing techniques
+Building professional confidence</textarea></label>
+            
+            <label>Next 2-3 Years Goals:<textarea id="inputGoals">Complete Year 12 while building my portfolio of hair styling work. Start a Certificate III in Hairdressing in 2026. Find a great salon for my apprenticeship. Begin building my client base and social media presence.</textarea></label>
+            
+            <label>Communication Skills Evidence:<textarea id="inputCommunicationEvidence">Customer Service (5/5): I work part-time at my aunt's beauty supply store and consistently receive positive feedback from customers. I'm comfortable helping people find products and giving advice.
+Active Listening (4/5): Friends always feel comfortable in my chair when I do their hair for formal events. I've done hair and makeup for 3 school formals and multiple parties.
+Building Rapport (5/5): I spend 4 hours helping my friend with curly hair learn a routine that worked for her texture, and I volunteer helping elderly residents with grooming at the local aged care facility.</textarea></label>
+            
+            <label>Creative & Technical Skills Evidence:<textarea id="inputCreativeEvidence">Hair Styling & Braiding (4/5): I can do complex braids, updos, and have taught myself advanced techniques through online tutorials. I've styled hair for over 20 different people in the past year.
+Color Theory & Application (3/5): My teachers consistently praise my precision in art projects, and friends specifically request me because I never miss small details in styling.
+Makeup Application (4/5): I've created 15+ different hairstyles for friends and family, documented on my Instagram.</textarea></label>
+            
+            <label>Personal Qualities Evidence:<textarea id="inputPersonalEvidence">Attention to Detail (5/5): My teachers consistently praise my precision in art projects, and friends specifically request me because I never miss small details in styling.
+Patience & Empathy (5/5): I spend 4 hours helping my friend with curly hair learn a routine that worked for her texture, and I volunteer helping elderly residents with grooming at the local aged care facility.
+Trend Awareness (4/5): I follow major beauty influencers and stay updated with seasonal trends, which helps me suggest current styles to friends.</textarea></label>
+            
+            <label>Portfolio Highlights:<textarea id="inputPortfolioHighlights">15+ different hairstyles created for friends & family
+Instagram: @MayasHairMagic - 500+ followers
+Won school's "Most Creative" award for prom styling</textarea></label>
+            
+            <label>Image for Creativity Showcase:<input type="file" id="inputCreativityImage" accept="image/*"></label>
+
+            <h3>Section B: My Career Direction</h3>
+            <label>Industry Overview:<textarea id="inputIndustry">The Australian beauty and personal care industry is worth over $4.7 billion annually, with hairdressing being one of the largest segments. The industry includes hair salons, barbershops, mobile services, and specialized treatments. Current trends include sustainable beauty practices, personalized services, and the integration of technology in salons.</textarea></label>
+            
+            <label>Why This Industry Appeals:<textarea id="inputIndustryAppeal">I love the combination of creativity, technical skill, and personal connection that hairdressing offers. Every client is unique, and I get to help them express their personality while making them feel confident. The industry is constantly evolving with new techniques and trends, which means I'll never stop learning.</textarea></label>
+            
+            <label>Key Skills Needed:<textarea id="inputKeySkills">Technical Hair Skills,Creative Vision,Client Communication,Trend Awareness,Business Acumen,Physical Stamina</textarea></label>
+            
+            <label>Future Outlook:<textarea id="inputFutureOutlook">The hairdressing industry is expected to grow steadily, with demand driven by population growth and increased spending on personal grooming. There's growing demand for specialized services like color correction, extensions, and sustainable/organic treatments. The rise of social media has also created opportunities for stylists to build personal brands.</textarea></label>
+            
+            <label>Primary Career Interest:<textarea id="inputPrimaryCareer">Hair Stylist/Hairdresser
+Typical Responsibilities:
+• Consult with clients about their hair goals
+• Cut, color, and style hair using various techniques
+• Maintain salon cleanliness and hygiene standards
+• Stay updated with latest trends and techniques
+• Build and maintain client relationships
+• Recommend hair care products and treatments
+
+Required Qualifications: Certificate III in Hairdressing, completion of apprenticeship
+Salary Range: Apprentice: $21,000-30,000 | Qualified: $45,000-65,000 | Senior/Salon Owner: $70,000+
+Day-in-the-life: Start by setting up station and reviewing appointments, consult with first client about their vision, perform cuts and colors throughout the day, maintain equipment between clients, build rapport with regulars, and update client records.</textarea></label>
+            
+            <label>Alternative Career 1:<textarea id="inputCareer1">Color Specialist - Specialists who focus on advanced coloring techniques, color correction, and complex color transformations using bleaching, toning, and specialty products. Connection: Builds on foundational hairdressing skills but specializes in the technical and artistic aspects of hair coloring - an area I'm particularly interested in developing.</textarea></label>
+            
+            <label>Alternative Career 2:<textarea id="inputCareer2">Mobile Hair Stylist - Independent stylists who travel to clients' homes, events, or other locations to provide personalized hair services with flexible scheduling. Connection: Uses the same core hairdressing skills but offers more flexibility and direct client relationships, with potential for higher earnings and creative freedom.</textarea></label>
+            
+            <label>Current Job Opportunities:<textarea id="inputJobOpportunities">Hairdressing Apprentice - Bella Vista Hair Studio, Melbourne
+Requirements I Meet: Enthusiasm for hair styling, good communication skills, creative flair
+Requirements I Need: Year 12 completion or equivalent, willingness to learn, commitment to 3-year apprenticeship
+Salary: $22,000 - $28,000 + training + mentorship
+
+Junior Stylist Position - Toni&Guy, South Yarra
+Requirements I Meet: Portfolio of styling work, social media presence, customer service experience
+Requirements I Need: Certificate III in Hairdressing, 6 months experience, advanced cutting techniques
+Salary: $48,000 - $55,000 + commission + ongoing training</textarea></label>
+
+            <h3>Section C: Future Pathway Plan</h3>
+            <label>Education Plan:<textarea id="inputEducation">Immediate Next Steps (2025-2026):
+Year 12 Subject Choices:
+• English (essential communication skills for client consultation)
+• Business Management (understanding salon operations and future business ownership)
+• Health & Human Development (understanding scalp/hair health and client care)
+• Art (developing creative and color theory skills)
+• VET Certificate II in Salon Assistant (head start on industry qualification)
+
+Additional Experiences:
+• Complete basic hair cutting course at local community center
+• Attend Melbourne Hair & Beauty Expo
+• Seek work experience placement at local salon
+• Build Instagram portfolio to 1000+ followers
+• Practice advanced techniques through online masterclasses</textarea></label>
+            
+            <label>Post-School Course Details:<textarea id="inputCourseDetails">Certificate III in Hairdressing (SHB30416)
+Melbourne Institute of TAFE, Collingwood Campus
+
+Duration & Mode: 18 months (full-time), Combined with apprenticeship, 1 day per week at TAFE + 4 days in salon
+Entry Requirements: Year 12 completion or equivalent, Basic English and numeracy skills, Secured apprenticeship position
+Cost & Support: Free for apprentices under 25, Government-funded training, Tools and equipment included
+Key Units: Cut hair using basic techniques, Color and lighten hair, Provide shampoo and basin services, Style hair, Apply safe hygiene practices
+Career Alignment: Industry-standard qualification that leads directly to qualified hairdresser status and full salon employment
+Further Study Options: Certificate IV in Hairdressing, Diploma of Salon Management, Specialized courses in color, extensions
+Additional Information: Industry placement assistance, Modern facilities with salon simulation, Info Session: February 10, 2025
+Course Link: www.melbournepolytechnic.edu.au/courses/certificate-iii-in-hairdressing</textarea></label>
+            
+            <label>Timeline (year: milestones):<textarea id="inputTimeline">2025-2026: Year 12 & Prep - Complete VCE with focus on business, Build portfolio & Instagram presence, Secure apprenticeship placement
+2027-2028: Apprenticeship - Certificate III in Hairdressing, Work 4 days/week in salon, Build client base & skills
+2029-2031: Qualified Stylist - Full-time salon employment, Specialize in color techniques, Build strong clientele
+2032+: Career Growth - Senior stylist or salon owner, Mentor new apprentices</textarea></label>
+
+            <button id="downloadPdfBtn">Download for PDF</button>
+        </div>
+        
+        <div id="preview-panel">
+            <div class="portfolio">
+                <div class="cover-page">
+                    <div class="emoji-row">
+                        <span>✂️</span>
+                        <span>👩‍🦱</span>
+                        <span>🎨</span>
+                        <span>✨</span>
+                        <span>💄</span>
+                    </div>
+                    <div class="cover-content">
+                        <h1 id="previewTitle">Career Portfolio</h1>
+                        <h2 id="previewSubtitle">Creating Beauty & Building Confidence</h2>
+                        <div class="student-info">
+                            <h3 id="previewName">Maya Rodriguez</h3>
+                            <p id="previewStudentYear">Year 11 Work Related Skills</p>
+                            <p id="previewSchool">Riverside Secondary College</p>
+                            <p id="previewPortfolioYear">2025</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-header">
+                    <div class="section-letter">A</div>
+                    <div class="section-header-content">
+                        <h2>Who I Am Today</h2>
+                        <p>Understanding my current strengths, skills, and goals</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>👩‍🦱 Personal Profile</h3>
+                    <div class="profile-content">
+                        <h3>About Me</h3>
+                        <p id="previewProfile">I'm a creative person who loves making people feel confident and beautiful.</p>
+                        
+                        <div class="section-row">
+                            <div class="section-col">
+                                <h4>My Core Strengths</h4>
+                                <ul id="previewStrengths"></ul>
+                            </div>
+                            <div class="section-col">
+                                <h4>Areas to Develop</h4>
+                                <ul id="previewAreasToGrow"></ul>
+                            </div>
+                        </div>
+                        
+                        <h4>My Next 2-3 Years</h4>
+                        <p id="previewGoals">Complete Year 12 while building my portfolio of hair styling work.</p>
+                    </div>
+                    
+                    <div class="skills-inventory">
+                        <h3>📊 Skills Inventory</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Communication</h4>
+                                <div id="communicationSkills"></div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Creative & Technical</h4>
+                                <div id="creativeSkills"></div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Personal Qualities</h4>
+                                <div id="personalSkills"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h4>Top 5 Skills with Evidence:</h4>
+                        <ol class="evidence-list" id="previewAllEvidence"></ol>
+                    </div>
+                    
+                    <div class="highlight-cards">
+                        <div class="highlight-card">
+                            <div class="icon">🎨</div>
+                            <h5>Portfolio Highlights</h5>
+                            <p id="previewPortfolioHighlights">15+ different hairstyles created for friends & family</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="icon">📱</div>
+                            <h5>Social Media</h5>
+                            <p>Instagram: @MayasHairMagic - 500+ followers</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="icon">🏆</div>
+                            <h5>Recognition</h5>
+                            <p>Won school's "Most Creative" award for prom styling</p>
+                        </div>
+                    </div>
+                    
+                    <div class="creativity-showcase">
+                        <img id="previewCreativityImage" src="" alt="Creativity Showcase" style="display:none;">
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-letter">B</div>
+                    <div class="section-header-content">
+                        <h2>My Career Direction</h2>
+                        <p>Exploring my chosen industry and career pathways</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="industry-focus">
+                        <h3>🏢 Industry Focus</h3>
+                        <h4>Beauty & Personal Care Industry - Hairdressing</h4>
+                        <p><strong>Industry Overview:</strong> <span id="previewIndustry">The Australian beauty and personal care industry is worth over $4.7 billion annually.</span></p>
+                        <p><strong>Why This Industry Appeals to Me:</strong> <span id="previewIndustryAppeal">I love the combination of creativity, technical skill, and personal connection.</span></p>
+                        
+                        <h4>Key Skills Needed for Success:</h4>
+                        <div class="industry-skills" id="previewKeySkills"></div>
+                        
+                        <p><strong>Future Outlook:</strong> <span id="previewFutureOutlook">The hairdressing industry is expected to grow steadily.</span></p>
+                    </div>
+                    
+                    <h3>🎯 Career Exploration</h3>
+                    <div class="career-options">
+                        <div class="career-option">
+                            <h4>🎯 PRIMARY INTEREST: Hair Stylist/Hairdresser</h4>
+                            <div id="previewPrimaryCareer">Typical Responsibilities: Consult with clients about their hair goals</div>
+                        </div>
+                        <div class="career-option">
+                            <h4>🔄 ALTERNATIVE 1: Color Specialist</h4>
+                            <p id="previewCareer1">Specialists who focus on advanced coloring techniques</p>
+                        </div>
+                        <div class="career-option" style="grid-column: 1 / -1;">
+                            <h4>🔄 ALTERNATIVE 2: Mobile Hair Stylist</h4>
+                            <p id="previewCareer2">Independent stylists who travel to clients' homes</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Current Job Opportunities:</h4>
+                    <div class="job-opportunities" id="previewJobOpportunities"></div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-letter">C</div>
+                    <div class="section-header-content">
+                        <h2>My Future Pathway Plan</h2>
+                        <p>Strategic planning for education and career development</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="education-plan">
+                        <h3>🎓 Education & Training Plan</h3>
+                        <div id="previewEducation">Immediate Next Steps (2025-2026)</div>
+                    </div>
+                    
+                    <div class="course-details">
+                        <h4>Post-School Education Research: Certificate III in Hairdressing</h4>
+                        <div id="previewCourseDetails">Certificate III in Hairdressing (SHB30416)</div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <h3>📅 Career Development Timeline</h3>
+                        <h4>My Pathway from Now to Age 28</h4>
+                        <div class="timeline-content" id="previewTimeline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
