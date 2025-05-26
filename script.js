@@ -317,85 +317,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Enhanced print styles
+ // Enhanced print styles
       const printStyles = `
         @media print {
-          /* Hide all interactive elements */
-          #generator, aside, button, input, select, textarea, 
-          [contenteditable], .no-print {
+          /* 1) Hide all editing UI */
+          #generator, aside, button, input, select, textarea, [contenteditable], .no-print {
             display: none !important;
           }
 
-          /* Reset page layout */
+          /* 2) Reset margins & force portfolio full-width */
           html, body {
             margin: 0 !important;
             padding: 0 !important;
             width: 100% !important;
-            height: auto !important;
             background: white !important;
             font-size: 12pt !important;
             line-height: 1.4 !important;
           }
-
           .portfolio {
             margin: 0 !important;
             padding: 0 !important;
-            width: 100% !important;
             max-width: none !important;
             box-shadow: none !important;
-            border-radius: 0 !important;
             background: white !important;
           }
 
-          /* Page breaks */
+          /* 3) Strict page-break rules */
           .cover-page {
+            break-inside: avoid-page !important;
             page-break-after: always !important;
-            page-break-inside: avoid !important;
           }
-
-          .section-header {
-            page-break-after: avoid !important;
-            page-break-inside: avoid !important;
-          }
-
+          .section-header,
           .section {
-            page-break-before: avoid !important;
+            break-inside: avoid-page !important;
             page-break-inside: avoid !important;
-            margin-top: 0 !important;
+            page-break-before: avoid !important;
           }
 
-          /* Preserve colors and backgrounds */
+          /* 4) Preserve true-color backgrounds */
           * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
-            color-adjust: exact !important;
           }
 
-          /* Improve text readability */
-          h1, h2, h3, h4, h5, h6 {
-            color: inherit !important;
-            page-break-after: avoid !important;
-          }
-
-          p, li, div {
-            orphans: 3 !important;
-            widows: 3 !important;
-          }
-
-          /* Fix image sizing */
-          img {
-            max-width: 100% !important;
-            height: auto !important;
-          }
-
-          /* Ensure proper spacing */
-          .section {
-            padding: 1.5rem !important;
-          }
-
-          .cover-page {
-            padding: 2rem !important;
-          }
+          /* 5) Improve text flow */
+          h1, h2, h3, h4, h5, h6 { page-break-after: avoid !important; }
+          p, li, div { orphans: 3 !important; widows: 3 !important; }
+          img { max-width: 100% !important; height: auto !important; }
         }
 
         @page {
