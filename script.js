@@ -413,29 +413,34 @@ document.addEventListener('DOMContentLoaded', () => {
       const portfolioTitle = nameInput ? nameInput.value : 'Portfolio';
       
       const completeHTML = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${portfolioTitle}'s Portfolio - PDF Ready</title>
-  <style>
-    ${cssContent}
-    ${customStyles}
-    ${printStyles}
-  </style>
-</head>
-<body class="${document.body.className}">
-  ${portfolioHTML}
-  <script>
-    // Auto-print after a short delay to ensure styles are loaded
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        window.print();
-      }, 1000);
-    });
-  </script>
-</body>
-</html>`;
++ const html = `<!DOCTYPE html>
++ <html lang="en">
++ <head>
++   <meta charset="UTF-8">
++   <meta name="viewport" content="width=device-width,initial-scale=1.0">
++   <title>${document.getElementById('inputName').value}'s Portfolio</title>
++
++   <!-- pull in Tailwind & FontAwesome so the page is styled offline -->
++   <script src="https://cdn.tailwindcss.com"></script>
++   <link
++     rel="stylesheet"
++     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
++     integrity="sha512-…(your-integrity-hash)…"
++     crossorigin="anonymous"
++     referrerpolicy="no-referrer"
++   />
++
++   <!-- your inline styles + print rules -->
++   <style>${cssContent}\n${customStyles}\n${printStyles}</style>
++ </head>
++ <body class="${document.body.className}">
++   ${document.querySelector('.portfolio').outerHTML}
++   <script>
++     // auto-open print dialog
++     window.onload = () => setTimeout(() => window.print(), 500);
++   </script>
++ </body>
++ </html>`;
 
       // Create and download the file
       const blob = new Blob([completeHTML], { type: 'text/html;charset=utf-8' });
