@@ -191,14 +191,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // print rules
     const printStyles = `
-      @media print {
-        body * { visibility: hidden !important; }
-        .portfolio, .portfolio * { visibility: visible !important; }
-        .portfolio { position: absolute; top:0; left:0; width:100% !important; }
-        .cover-page { page-break-after: always; }
-        .section-header, .section { page-break-inside: avoid !important; page-break-after: always; }
-      }
-      @page { margin:1cm; size:A4; }
+     @media print {
+  /* Hide the editor UI */
+  aside, button, #downloadBtn, input, select, textarea, [contenteditable] {
+    display: none !important;
+  }
+
+  /* Reset margins and expand the portfolio */
+  body, html, .portfolio {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  /* Cover always ends on its own page */
+  .cover-page {
+    page-break-after: always !important;
+  }
+
+  /* Keep header + section together */
+  .section-header {
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .section {
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Preserve true-color backgrounds */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@page {
+  margin: 1cm;
+  size: A4;
+}
     `;
 
     // assemble HTML
