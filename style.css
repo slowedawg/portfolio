@@ -865,9 +865,14 @@ input[type="file"]:hover {
   .cover-page {
     page-break-after: always !important;
   }
-  .section-header,
+  .section-header {
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+  }
   .section {
     page-break-inside: avoid !important;
+    page-break-before: avoid !important;
+    page-break-after: always !important;
   }
 
   /* 4) Reset margins/background for print */
@@ -877,10 +882,14 @@ input[type="file"]:hover {
     padding: 0 !important;
     background: white !important;
   }
+
+  /* 5) Preserve true-color backgrounds */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
 
-/* Define page size & margins */
 @page {
   size: A4;
   margin: 1cm;
-}
